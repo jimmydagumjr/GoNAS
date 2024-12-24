@@ -1,0 +1,23 @@
+# .air.toml
+
+# Build settings
+[build]
+  # Directory where the Go binary will be placed after build
+  bin = "bin/app.exe"
+
+  # Command to build your Go application
+  cmd = "go build -o bin/app.exe cmd/web/main.go"
+
+  # The command to run the binary after it's built
+  run = "bin/app.exe"
+
+  # Build arguments (optional)
+  build_args = []
+
+  # Exclude directories or files from being watched
+  exclude = ["data", "tmp", "vendor"]
+
+# Watch configuration
+[watch]
+  include = ["cmd", "internal"]
+  exclude = ["data", "tmp"]
