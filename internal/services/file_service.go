@@ -35,3 +35,19 @@ func UploadFile(file io.Reader, filename string) error {
 
 	return nil
 }
+
+func DownloadFile(filename string) (*os.File, error) {
+	// Sanitize the filename
+	safeFilename := filepath.Base(filename)
+
+	// Define the file path in the 'data' directory
+	filePath := filepath.Join("data", safeFilename)
+
+	// Open the file for reading
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, fmt.Errorf("unable to open file: %v", err)
+	}
+
+	return file, nil
+}

@@ -20,6 +20,7 @@ func main() {
 
 	// Define routes
 	r.Post("/upload", handlers.FileUploadHandler)
+	r.Get("/download/{filename}", handlers.FileDownloadHandler)
 
 	// Start the server
 	log.Println("Starting server on :8080")
